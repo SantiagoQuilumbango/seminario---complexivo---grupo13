@@ -25,7 +25,7 @@ SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_PATH = os.path.join(SCRIPT_DIR, ".", "data", "Airbnb_Open_Data.csv")
  
 # nueva ruta de salida
-PROCESSED_DATA_PATH = os.path.join(SCRIPT_DIR, "data", "processed", "games_clean.csv")
+PROCESSED_DATA_PATH = os.path.join(SCRIPT_DIR, "data", "processed", "Airbnb_clean.csv")
 
 # ¿este archivo se está ejecutando directamente por el usuario o está siendo importado por otro script?
 if __name__ == "__main__":
@@ -48,7 +48,7 @@ if __name__ == "__main__":
         # MÓDULO IMPUTACIÓN DE DATOS
         print("\n---INICIANDO IMPUTACIÓN DE DATOS---")
         df_procesado = imputar_anio_construccion(df_limpio)
-        df_procesado = rellenar_mediana_columna(df_procesado)
+        df_procesado["reviews_per_month"] = rellenar_mediana_columna(df_procesado["reviews_per_month"])
         df_procesado = imputacion_reviews_y_precios(df_procesado)#3
         print("\n---IMPUTACIÓN DE DATOS TERMINADO---")
 
@@ -69,3 +69,4 @@ if __name__ == "__main__":
         
     else: 
         print("Ha ocurrido un error en la carga de datos")
+    #wwwwww
