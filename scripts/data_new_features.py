@@ -10,10 +10,10 @@ def crear_costo_total(df):
 
     # Asegurar que las columnas numéricas estén limpias
     df["price"] = df["price"].replace('[\$,]', '', regex=True).astype(float)
-    df["service fee"] = df["service fee"].replace('[\$,]', '', regex=True).astype(float)
+    df["service_fee"] = df["service_fee"].replace('[\$,]', '', regex=True).astype(float)
 
     # Crear nueva columna
-    df["costo_total"] = (df["price"] + df["service fee"]) * df["minimum nights"]
+    df["costo_total"] = (df["price"] + df["service_fee"]) * df["minimum nights"]
 
     return df
 
